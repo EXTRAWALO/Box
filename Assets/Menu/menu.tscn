@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8r87ka7gwx66"]
+
+[ext_resource type="Script" uid="uid://dlod4f34606gw" path="res://Assets/Scripts/Menu/menu.gd" id="1_ti3lc"]
+[ext_resource type="Texture2D" uid="uid://b57urktw3pnt6" path="res://Assets/Sprites/Backgrounds/Interface BG.png" id="2_5k6ka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k6ka"]
+bg_color = Color(0.60809547, 0.38475943, 0.16612276, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ti3lc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(641, 362.74997)
+scale = Vector2(0.8326823, 0.70263666)
+texture = ExtResource("2_5k6ka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 451.0
+offset_right = 750.0
+offset_bottom = 690.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5k6ka")
+text = "Play"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5k6ka")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5k6ka")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

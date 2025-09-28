@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy3nicv3xgvgp"]
+
+[ext_resource type="Script" uid="uid://d0p6f0mbhedvu" path="res://Assets/Scripts/bloc.gd" id="1_1jh6t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6us54"]
+load_path = "res://.godot/imported/Bloc.png-ee7e7c4604c87a3ce0e55a036ca02d50.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6us54"]
+size = Vector2(82, 85)
+
+[node name="Bloc" type="CharacterBody2D"]
+script = ExtResource("1_1jh6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(581, 559)
+texture = SubResource("CompressedTexture2D_6us54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(582, 560.5)
+shape = SubResource("RectangleShape2D_6us54")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ut83vufo6td"]
+
+[ext_resource type="Script" uid="uid://cp4g1wvo7jx0t" path="res://Assets/Menu/option_menu.gd" id="1_400u1"]
+[ext_resource type="Texture2D" uid="uid://b57urktw3pnt6" path="res://Assets/Sprites/Backgrounds/Interface BG.png" id="2_400u1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_400u1"]
+bg_color = Color(0.60809547, 0.38475943, 0.16612276, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="GDScript" id="GDScript_400u1"]
+script/source = "extends HSlider
+"
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = 193.0
+offset_right = 536.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_400u1")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(641, 362.74997)
+scale = Vector2(0.8326823, 0.70263666)
+texture = ExtResource("2_400u1")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = -108.0
+offset_right = 677.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_400u1")
+text = "Back
+"
+
+[node name="Music" type="Button" parent="."]
+layout_mode = 0
+offset_left = -359.0
+offset_top = 337.0
+offset_right = -191.0
+offset_bottom = 436.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_400u1")
+text = "	Music"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.08800001
+offset_left = -136.0
+offset_top = 344.0
+offset_right = 322.0
+offset_bottom = 377.63998
+max_value = 1.5
+step = 0.001
+script = SubResource("GDScript_400u1")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
